@@ -15,18 +15,17 @@ jobs:
       - run:
           name: Install Dependencies
           command: |
-            sudo apt install python3
-            python3 -m venv venv
+            apt update
+            apt install python3 --assume-yes
+            apt-get install python3-venv --assume-yes
+            python3 -m venv venv            
             source venv/bin/activate
             make install
-            # Install hadolint
-            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-            chmod +x /bin/hadolint  
             #pip3 install --user yamllint            
             export PATH=$PATH:/bin
       # run lint!
       - run:
-          name: Lint YAMLs and Dockerfile
+          name: Lint YAMLs
           command: |
             source venv/bin/activate
             make lint

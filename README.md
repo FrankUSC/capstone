@@ -9,6 +9,7 @@ docker build -t raosuper/saas-website:latest .
 
 # Step2 run the container and push it to docker cloud
 docker run --name mySaasSite -d  -p 8080:80 raosuper/saas-website:latest
+docker exec -it mySaasSite bash
 docker push raosuper/saas-website:latest
 
 ## Build AWS EKS environments
