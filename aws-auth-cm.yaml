@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::158672433150:role/capstone-role-eksClusterRole-195M51QFY0Z6E
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+  mapUsers: |
+    - userarn: arn:aws:iam::158672433150:user/udacity
+      username: udacity
+      groups:
+        - system:masters
