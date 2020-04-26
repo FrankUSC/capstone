@@ -7,8 +7,3 @@ COPY website /usr/share/nginx/html
 # Expose port 80
 EXPOSE 80
 
-##Command to build the image
-# docker build -t raosuper/saas-website:latest .
-
-##Command to run the container
-# docker run --name mySaasSite -d  -p 8080:80 raosuper/saas-website:latest
