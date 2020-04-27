@@ -12,10 +12,10 @@ setup:
 install:
 	# This should be run from inside a virtualenv
 	pip3 install --upgrade pip
-	pip3 install yamllint
+	pip3 install yamllint	
+run:
 	# Run the docker container from image
 	docker run --name mySaasSite -d  -p 8080:80 raosuper/saas-website:latest 
-
 
 lint:
 	# See local hadolint install instructions:   https://github.com/hadolint/hadolint
