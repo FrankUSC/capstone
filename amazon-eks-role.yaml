@@ -1,3 +1,4 @@
+---
 Description: 'Amazon EKS Cluster Role'
 
 Resources:
@@ -7,18 +8,20 @@ Resources:
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
-        - Effect: Allow
-          Principal:
-            Service:
-            - eks.amazonaws.com
-          Action:
-          - sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service:
+                - eks.amazonaws.com
+            Action:
+              - sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
 
 Outputs:
   RoleArn:
-    Description: The role that Amazon EKS will use to create AWS resources for Kubernetes clusters
+    Description: |
+      The role that Amazon EKS will use to create AWS
+      resources for Kubernetes clusters
     Value: !GetAtt eksClusterRole.Arn
     Export:
       Name: !Sub "${AWS::StackName}-RoleArn"
