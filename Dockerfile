@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:1.18
 WORKDIR /app
 ## Step 1:
 # Copy website static files to the server
